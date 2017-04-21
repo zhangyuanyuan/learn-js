@@ -1,0 +1,66 @@
+.scroll-container{
+	width: 500px;
+	border: 1px solid #e5e5e5;
+	background: #fff;
+	margin: 30px auto;
+}
+/*标签切换区*/
+.scroll-tab{
+	height: 34px;
+	border-bottom: 1px solid #e5e5e5;
+	color: #666;
+	background: #f8f8f8;
+}
+.scroll-tab .scroll-tab-item {
+	float: left;
+	font: 14px/34px "Microsoft Yahei";
+	height: 34px;
+	text-align: center;
+	border-right: 1px solid #e5e5e5;
+	padding: 0 20px;
+	cursor: pointer;
+}
+.scroll-tab .active{
+	color: #00be3c;
+	background: #fff;
+	border-top: 2px solid #00be3c;
+	margin: -1px auto;
+}
+/*滚动内容区*/
+.scroll-warp{
+	width: 100%;
+	height: 300px;
+	position: relative;
+}
+.scroll-warp .scroll-content{
+	height: 100%;
+	padding: 0 15px;
+	overflow: hidden;
+}
+.scroll-warp .scroll-content h3{
+	font: 16px/3 "Microsoft Yahei";
+	text-align: center;
+}
+.scroll-warp .scroll-content p{
+	font-size: 14px;
+	line-height: 20px;
+	text-indent: 2em;
+	margin-bottom: 10px;
+}
+/*滚动条*/
+.scroll-warp .scroll-bar{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 10px;
+	height: 100%;
+	background-color: #eaeaea;
+}
+.scroll-bar .scroll-slider{
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	width: 8px;
+	height: 30px;
+	background-color: #fff;
+}
