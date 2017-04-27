@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>preload</title>
+</head>
+<style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .box {
+        text-align: center;
+    }
+
+    .btn {
+        display: inline;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 0 10px;
+        margin-right: 50px;
+        color: #333;
+    }
+
+    .btn:hover {
+        background-color: #eee;
+    }
+
+    img {
+        width: 1200px;
+    }
+
+    .loading {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: #eee;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .loading .progress {
+        margin-top: 300px;
+    }
+</style>
+<body>
+<div class="loading">
+    <p class="progress">0%</p>
+</div>
+<div class="box">
+    <img src="http://bpic.588ku.com/back_pic/04/88/27/4858f1766a7d205.jpg!ww1200" id="img"/>
+    <p>
+        <a href="javascript:void(0);" class="btn" data-control="prev">上一页</a>
+        <a href="javascript:void(0);" class="btn" data-control="next">下一页</a>
+    </p>
+</div>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script src="js/preload.js"></script>
+<script>
+    var imgs = ['http://dl.bizhi.sogou.com/images/2012/03/14/124196.jpg',
+        'http://bpic.588ku.com/back_pic/04/88/27/4858f1766a7d205.jpg!ww1200',
+        'http://t1.niutuku.com/960/52/52-603060.jpg',
+        'http://t1.niutuku.com/960/52/52-602985.jpg',
+        'http://t1.niutuku.com/960/59/59-604123.jpg'
+    ];
+
+    var index = 0,
+            len = imgs.length,
+            $progress = $('.progress');
+
+    $.preload(imgs, {
+        each: function(count) {
+            $progress.html(Math.round((count + 1) / len * 100) + "%");
+        },
+        all: function() {
+            $('.loading').hide();
+            document.title = 1 + '/' + len;
+        }
+    })
+
+    $('.btn').on('click', function () {
+        var control = $(this).data('control');
+        if ('prev' === control) {
+            index = Math.max(0, --index);
+        } else {
+            index = Math.min(len - 1, ++index);
+        }
+        document.title = (index + 1) + '/' + len;
+        $('#img').attr('src', imgs[index]);
+    })
+</script>
+</body>
+
+</html>
