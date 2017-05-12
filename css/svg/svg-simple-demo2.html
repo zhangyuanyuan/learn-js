@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于SVG的动画相关</title>
+</head>
+<body>
+	<svg>
+		<text text-anchor="middle" x="60" y="60" style="visibility: hidden;">
+		  <set attributeName="visibility" attributeType="CSS"
+		    to="visible" begin="4.5s" dur="1s" fill="freeze"/>
+		  All gone!
+		</text>
+	</svg>
+
+	<svg>
+		  <path d="M10,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 10,110"
+		      stroke="lightgrey" stroke-width="2" 
+		      fill="none" id="theMotionPath"/>
+		  <circle cx="10" cy="110" r="3" fill="lightgrey"  />
+		  <circle cx="110" cy="10" r="3" fill="lightgrey"  />
+
+		  <!-- Red circle which will be moved along the motion path. -->
+		  <circle cx="" cy="" r="5" fill="red">
+		    <!-- Define the motion path animation -->
+		    <animateMotion dur="6s" repeatCount="indefinite">
+		      <mpath xlink:href="#theMotionPath"/>
+		    </animateMotion>
+		  </circle>
+	</svg>
+
+	<svg>
+		<path fill="#1EB287">
+		    <animate 
+		             attributeName="d" 
+		             dur="1440ms" 
+		             repeatCount="indefinite"
+		             keyTimes="0;
+		                       .0625;
+		                       .208333333;
+		                       .3125;
+		                       .395833333;
+		                       .645833333;
+		                       .833333333;
+		                       1"
+		             calcMode="spline" 
+		             keySplines="0,0,1,1;
+		                         .42,0,.58,1;
+		                         .42,0,1,1;
+		                         0,0,.58,1;
+		                         .42,0,.58,1;
+		                         .42,0,.58,1;
+		                         .42,0,.58,1"
+		             values="M 0,0 
+		                     C 50,0 50,0 100,0
+		                     100,50 100,50 100,100
+		                     50,100 50,100 0,100
+		                     0,50 0,50 0,0
+		                     Z;
+
+		                     M 0,0 
+		                     C 50,0 50,0 100,0
+		                     100,50 100,50 100,100
+		                     50,100 50,100 0,100
+		                     0,50 0,50 0,0
+		                     Z;
+
+		                     M 50,0 
+		                     C 75,25 75,25 100,50 
+		                     75,75 75,75 50,100
+		                     25,75 25,75 0,50
+		                     25,25 25,25 50,0
+		                     Z;
+
+		                     M 25,50 
+		                     C 37.5,25 37.5,25 50,0 
+		                     75,50 75,50 100,100
+		                     50,100 50,100 0,100
+		                     12.5,75 12.5,75 25,50
+		                     Z;
+
+		                     M 25,50 
+		                     C 37.5,25 37.5,25 50,0 
+		                     75,50 75,50 100,100
+		                     50,100 50,100 0,100
+		                     12.5,75 12.5,75 25,50
+		                     Z;
+
+		                     M 50,0
+		                     C 77.6,0 100,22.4 100,50 
+		                     100,77.6 77.6,100 50,100
+		                     22.4,100, 0,77.6, 0,50
+		                     0,22.4, 22.4,0, 50,0
+		                     Z;
+		                     
+		                     M 50,0
+		                     C 77.6,0 100,22.4 100,50 
+		                     100,77.6 77.6,100 50,100
+		                     22.4,100, 0,77.6, 0,50
+		                     0,22.4, 22.4,0, 50,0
+		                     Z;
+		                     
+		                     M 100,0 
+		                     C 100,50 100,50 100,100
+		                     50,100 50,100 0,100
+		                     0,50 0,50 0,0
+		                     50,0 50,0 100,0
+		                     Z;"/>
+	  </path>
+	</svg>
+	<svg>
+		<rect x="10" y="10" width="200" height="20" stroke="black" fill="none">
+		  <animate
+		    attributeName="width"
+		    attributeType="XML"
+		    from="200" to="20"
+		    begin="0s" dur="5s"
+		    fill="freeze" />
+		</rect>
+		<rect x="-10" y="-10" width="20" height="20"
+		    style="fill: #ff9; stroke: black;">
+		    <animateTransform attributeType="XML"
+		      attributeName="transform" type="scale"
+		      from="1" to="4 2"
+		      begin="0s" dur="4s" fill="freeze"/>
+		</rect>
+	</svg>
+</body>
+</html>
